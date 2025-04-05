@@ -1,23 +1,21 @@
 {
-  "name": "backend",
+  "name": "server",
   "version": "1.0.0",
+  "description": "This is my backend server",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
-  "keywords": [],
+  "keywords": [
+    "a"
+  ],
   "author": "Shivam Yadav",
   "license": "ISC",
-  "description": "This is backend server for my e-com website and more others",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Shivam8535/E-Com.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Shivam8535/E-Com/issues"
-  },
-  "homepage": "https://github.com/Shivam8535/E-Com#readme",
   "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.13.2"
