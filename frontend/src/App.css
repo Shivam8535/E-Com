@@ -1,1 +1,25 @@
 @import "tailwindcss";
+
+
+form {}
+
+input {
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 12px;
+}
+
+.nav-box {
+    box-shadow: 0 0 10px rgb(253, 253, 253),
+        0 0 10px rgb(221, 221, 221),
+        0 8px 20px rgb(131, 131, 131);
+    z-index: 999;
+}
+
+nav {
+    box-shadow: 0 0 10px rgb(255, 255, 255),
+        0 0 10px rgb(128, 173, 170),
+        0 0 10px rgb(142, 142, 142);
+    padding: 0 0.6rem;
+    border-radius: 12px;
+}
