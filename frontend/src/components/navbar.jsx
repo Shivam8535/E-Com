@@ -17,6 +17,8 @@ const Navbar = () => {
                         <li className="box relative hidden group-hover:block">
                             <div className="nav-box rounded-2xl lg:w-[25rem] w-[15rem] left-[-10rem] overflow-hidden h-60 py-2 absolute lg:left-[-18.9rem]">
                                 <a className="px-4 rounded-2x hover:bg-gray-50 block" href="/profile">Profile</a>
+                                <a className="px-4 rounded-2x hover:bg-gray-50 block" href="/seller">Sell Product</a>
+                                <a className="px-4 rounded-2x hover:bg-gray-50 block" href="/Products">Product</a>
                             </div>
                         </li>
                     </ul>

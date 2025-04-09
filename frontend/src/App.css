@@ -16,6 +16,12 @@ input {
     border-radius: 12px;
 }
 
+header {
+    top: 2px;
+    z-index: 99;
+    position: sticky;
+}
+
 .nav-box {
     box-shadow: 0 0 10px rgb(253, 253, 253),
         0 0 10px rgb(221, 221, 221),
@@ -45,4 +51,9 @@ nav {
         radial-gradient(circle at 116% 117%, rgba(4, 0, 255, 0.903) 0px, transparent 50%),
         radial-gradient(circle at 9% 9%, rgba(72, 255, 0, 0.726) 0px, transparent 50%),
         radial-gradient(circle at 93% 93%, rgba(255, 0, 195, 0.903) 0px, transparent 100%);
+}
+
+textarea {
+    outline: none;
+    border: 1px solid gray;
 }

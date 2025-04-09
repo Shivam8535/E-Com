@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Landing Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../..//styles/style.css">
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+  <!-- Header -->
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+      <h1 class="text-2xl font-bold">ShopEase</h1>
+      <nav class="space-x-6 hidden md:flex">
+        <a href="#features" class="hover:text-blue-600">Features</a>
+        <a href="#products" class="hover:text-blue-600">Products</a>
+        <a href="#contact" class="hover:text-blue-600">Contact</a>
+      </nav>
+      <button class="md:hidden text-2xl">&#9776;</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-blue-100 to-blue-300 py-20 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">Discover the Best Deals</h2>
+      <p class="text-lg md:text-xl mb-6">Quality products delivered to your doorstep</p>
+      <a href="#products" class="bg-blue-600 text-white px-6 py-3 rounded-full shadow-md hover:bg-blue-700 transition">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-16 px-4 bg-white">
+    <div class="max-w-6xl mx-auto grid gap-8 md:grid-cols-3 text-center">
+      <div>
+        <img src="https://img.icons8.com/ios-filled/50/shipping.png" alt="Fast Delivery" class="mx-auto mb-4">
+        <h3 class="text-xl font-semibold mb-2">Fast Delivery</h3>
+        <p>Quick and reliable delivery to your doorstep.</p>
+      </div>
+      <div>
+        <img src="https://img.icons8.com/ios-filled/50/discount.png" alt="Best Prices" class="mx-auto mb-4">
+        <h3 class="text-xl font-semibold mb-2">Best Prices</h3>
+        <p>Affordable deals and seasonal discounts.</p>
+      </div>
+      <div>
+        <img src="https://img.icons8.com/ios-filled/50/online-support.png" alt="Support" class="mx-auto mb-4">
+        <h3 class="text-xl font-semibold mb-2">24/7 Support</h3>
+        <p>We’re here to help you anytime you need.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="py-16 px-4 bg-gray-100">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12">Featured Products</h2>
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Product Card -->
+        <div class="bg-white rounded-xl shadow p-4">
+          <img src="https://via.placeholder.com/300" alt="Product 1" class="rounded-lg mb-4">
+          <h3 class="text-xl font-semibold mb-2">Product 1</h3>
+          <p class="mb-2">Short description of the product.</p>
+          <span class="text-blue-600 font-bold text-lg">$29.99</span>
+        </div>
+        <!-- Repeat Product Cards -->
+        <div class="bg-white rounded-xl shadow p-4">
+          <img src="https://via.placeholder.com/300" alt="Product 2" class="rounded-lg mb-4">
+          <h3 class="text-xl font-semibold mb-2">Product 2</h3>
+          <p class="mb-2">Short description of the product.</p>
+          <span class="text-blue-600 font-bold text-lg">$49.99</span>
+        </div>
+        <div class="bg-white rounded-xl shadow p-4">
+          <img src="https://via.placeholder.com/300" alt="Product 3" class="rounded-lg mb-4">
+          <h3 class="text-xl font-semibold mb-2">Product 3</h3>
+          <p class="mb-2">Short description of the product.</p>
+          <span class="text-blue-600 font-bold text-lg">$39.99</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 px-4 bg-white">
+    <div class="max-w-xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">Get in Touch</h2>
+      <p class="mb-6">Have questions or need support? Contact us now!</p>
+      <form class="space-y-4">
+        <input type="text" placeholder="Your Name" class="w-full border p-3 rounded">
+        <input type="email" placeholder="Your Email" class="w-full border p-3 rounded">
+        <textarea placeholder="Your Message" class="w-full border p-3 rounded h-32"></textarea>
+        <button class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white text-center py-6">
+    <p>&copy; 2025 ShopEase. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>
