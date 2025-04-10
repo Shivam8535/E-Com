@@ -5,7 +5,8 @@ import { Register } from "../components/auth/user.js";
 const userRouter = e.Router();
 
 // User APIs setup
-userRouter.get("/api/auth", Register)
+userRouter.post("/register", Register)
+userRouter.post("/login", Register);
 
 
 

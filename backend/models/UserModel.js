@@ -1,12 +1,11 @@
 import mongoose from "mongoose";
 
-
 const userSchema = new mongoose.Schema({
-    googleID: { type: Number, unique: true },
-    avtar: {type: String},
+    googleID: { type: Number, unique: true, sparse: true },
+    avatar: { type: String },
     name: { type: String },
-    email: { type: Array, unique: true },
-    password: { type: Number },
+    email: { type: String, unique: true },
+    password: { type: String },
     isAdmin: { type: Boolean, default: false },
 }, { timestamps: true });
 

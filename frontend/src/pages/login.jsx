@@ -1,56 +1,144 @@
-import { useState } from 'react';
-import '../styles/login.css'
-// import $ from 'jquery';
-import '../js/login';
-import { ToastContainer, toast } from 'react-toastify';
-import './javaScript/form.js';
-
+import React, { useState } from "react";
 
 const Login = () => {
-    
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+  const [isLogin, setIsLogin] = useState(true);
+  const [userData, setUserData] = useState({  });
 
-    const submit = (e) => {
-        e.preventDefault();
-        console.log("name : ", name, "email : ", email, "password : ", password);
-        toast("Work Soon !")
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  console.log(userData);
+  
+  const toggleForm = () => {
+    setIsLogin(!isLogin);
+    // Optionally reset form
+    setUserData({
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const url = isLogin
+      ? "http://localhost:4040/login"
+      : "http://localhost:4040/register";
+
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify(userData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await res.json();
+      console.log("Response from server:", data);
+      // You can redirect or show a toast here
+
+    } catch (error) {
+      console.error("Error submitting form:", error);
     }
+  };
 
-    return (<>
-        <section className="loginsec container mx-auto h-[80vh] w-full flex justify-center items-center">
-            <div className="form md:w-[40rem] relative rounded-2xl w-[20rem] h-[20rem] bg-[#fff]">
-                <form method="" className="w-full absolute signform py-2 px-4 h-full flex flex-col  items-center justify-center">
-                    <h1 className='font-[700]'>Log In</h1>
-                    <div>
-                        <div className='relative'>
-                            <p className=' absolute top-6 left-2' htmlFor="Name">Name : </p>
-                        </div>
-                        <div>
-                            <input className='z-2 mt-5 h-9 w-60 lg:w-80 ' id='name' type="text" onChange={(e) => { setName(e.target.value) }} value={name} name="name" />
-                        </div>
-                        <div className='relative'>
-                            <p className='z-0 absolute top-6 left-2' htmlFor="Email">Email : </p>
-                        </div>
-                        <input id='email' className='email z-2 mt-5 h-9 w-60 lg:w-80 ' type="email" onChange={(e) => { setEmail(e.target.value) }} value={email} name="email" />
-                        <div className='relative'>
-                            <p className=' absolute top-6 left-2' htmlFor="Password">Password : </p>
-                        </div>
-                        <div>
-                            <input className='z-2 mt-5 h-9 w-60 lg:w-80 ' id='password' value={password} onChange={(e) => { setPassword(e.target.value) }} type="password" name="password" />
-                        </div>
-                        <div className='flex justify-evenly mt-2'>
-                            <button type="button" onClick={submit} className="loginBtn cursor-pointer border px-6 rounded-2xl border-gray-200">Login</button>
-                            <a className='border border-gray-200 rounded-2xl px-3' href="/auth/google">Google</a>
-                        </div>
-                    </div>
-                </form>
+  return (
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
+      <div className="bg-white rounded-2xl shadow-lg w-full max-w-md p-8">
+        <h2 className="text-2xl font-bold text-center mb-6">
+          {isLogin ? "Login to your account" : "Create a new account"}
+        </h2>
+
+        <form onSubmit={handleSubmit} className="space-y-4">
+          {!isLogin && (
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Name
+              </label>
+              <input
+                id="name"
+                type="text"
+                name="name"
+                value={userData.name}
+                onChange={handleChange}
+                required
+                className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
             </div>
-        </section>
-        <ToastContainer />
-    </>)
-}
+          )}
 
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              value={userData.email}
+              onChange={handleChange}
+              required
+              className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Password
+            </label>
+            <input
+              type="password"
+              name="password"
+              value={userData.password}
+              onChange={handleChange}
+              required
+              className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          {!isLogin && (
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Confirm Password
+              </label>
+              <input
+                type="password"
+                name="confirmPassword"
+                value={userData.confirmPassword}
+                onChange={handleChange}
+                required
+                className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+          )}
+
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+          >
+            {isLogin ? "Login" : "Register"}
+          </button>
+        </form>
+
+        <p className="mt-6 text-center text-sm text-gray-600">
+          {isLogin ? "Don't have an account?" : "Already have an account?"}
+          <button
+            onClick={toggleForm}
+            className="text-blue-600 hover:underline ml-1 font-medium"
+          >
+            {isLogin ? "Register" : "Login"}
+          </button>
+        </p>
+      </div>
+    </div>
+  );
+};
 
 export default Login;
