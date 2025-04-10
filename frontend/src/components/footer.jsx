@@ -11,7 +11,7 @@ const Footer = () => {
                 <div>
                     <h2 className="text-2xl font-bold mb-2">MyBrand</h2>
                     <p className="text-sm text-gray-400">
-                        Empowering your web journey with beautiful and responsive design.
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae autem obcaecati, odit, saepe suscipit, itaque quaerat tempore cupiditate minus dicta omnis placeat beatae quod veniam minima velit possimus maxime tempora.
                     </p>
                 </div>
 
@@ -19,10 +19,10 @@ const Footer = () => {
                 <div>
                     <h3 className="text-xl font-semibold mb-3">Quick Links</h3>
                     <ul className="space-y-2 text-sm text-gray-300">
-                        <li><a href="//as" className="hover:text-white transition">Home</a></li>
-                        <li><a href="//as" className="hover:text-white transition">About</a></li>
+                        <li><a href="/" className="hover:text-white transition">Home</a></li>
+                        <li><a href="/" className="hover:text-white transition">About</a></li>
                         <li><a href="//as" className="hover:text-white transition">Services</a></li>
-                        <li><a href="//as" className="hover:text-white transition">Contact</a></li>
+                        <li><a href="/contact" className="hover:text-white transition">Contact</a></li>
                     </ul>
                 </div>
 
@@ -30,7 +30,7 @@ const Footer = () => {
                 <div>
                     <h3 className="text-xl font-semibold mb-3">Follow Us</h3>
                     <div className="flex space-x-4 text-gray-400 text-2xl">
-                        <a href="//as" className="hover:text-white transition">
+                        <a href="/" className="hover:text-white transition">
                             <i className="fab fa-facebook-f"></i>
                         </a>
                         <a href="//as" className="hover:text-white transition">

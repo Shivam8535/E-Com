@@ -6,6 +6,7 @@ import cors from 'cors';
 import { userRouter } from "./routers/routes.js";
 import passport from "passport";
 import session from "express-session"; // 👈 Import express-session separately
+import './components/auth/gOAuth.js'
 
 configDotenv();
 dbConnect();
@@ -26,11 +27,24 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session()); // 👈 Correct usage
 
+// Router
+app.use('/', userRouter);
+
+
+
 // Google OAuth route (fixed syntax)
 app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email',] }));
+app.get(
+    '/auth/callback',
+    passport.authenticate('google', { failureRedirect: 'http://localhost:3000/login' }),
+    (req, res) => {
+        const data = req.user
+        console.log("data",data)
+      // Successful authentication, redirect to React app
+      res.redirect('http://localhost:3000/profile');
+    }
+  );
 
-// Router
-app.use('', userRouter);
 
 app.listen(port, () => {
     console.log(`Your server is running at http://localhost:${port}`);

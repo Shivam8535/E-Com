@@ -10,7 +10,7 @@ export const Register = async (req, res) => {
 
     try {
         const existUser = await User.findOne({ email: data.email })
-        if(existUser == []){
+        if (existUser == []) {
             throw new Error('user already existed !');
         }
         const newUser = await User(data)
@@ -20,4 +20,12 @@ export const Register = async (req, res) => {
         console.log("error : ", error.message)
         return res.json({ ok: false, message: error.message });
     }
+}
+
+
+// for login
+export const logIn = async (req, res) => {
+    const data = req.body;
+
+    console.log(data)
 }

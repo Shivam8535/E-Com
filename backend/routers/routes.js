@@ -9,11 +9,9 @@ const userRouter = e.Router();
 userRouter.post("/register", Register)
 userRouter.post("/login", Register);
 
-//
-const googleRouter = e.Router();
 
 
 
 
 //
-export { userRouter, googleRouter }
+export { userRouter,  }
