@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
-  const [userData, setUserData] = useState({  });
+  const [userData, setUserData] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -13,7 +13,7 @@ const Login = () => {
   };
 
   console.log(userData);
-  
+
   const toggleForm = () => {
     setIsLogin(!isLogin);
     // Optionally reset form
@@ -50,6 +50,10 @@ const Login = () => {
     }
   };
 
+  // login with Google
+  const handelGoogleLogin = () => {
+    window.open('http://localhost:4040/auth/google', '_self');
+  }
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
       <div className="bg-white rounded-2xl shadow-lg w-full max-w-md p-8">
@@ -57,7 +61,7 @@ const Login = () => {
           {isLogin ? "Login to your account" : "Create a new account"}
         </h2>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4 mb-2">
           {!isLogin && (
             <div>
               <label className="block text-sm font-medium text-gray-700">
@@ -126,8 +130,9 @@ const Login = () => {
             {isLogin ? "Login" : "Register"}
           </button>
         </form>
+        {isLogin ? <button className="text-blue-400 font-md py-2 rounded-md cursor-pointer" onClick={handelGoogleLogin}>Login with <span className="text-blue-700">G</span><span className="text-red-500">o</span><span className="text-orange-300">o</span><span className="text-blue-600">g</span><span className="text-green-600">l</span><span className="text-red-600">e</span></button> : <></>}
 
-        <p className="mt-6 text-center text-sm text-gray-600">
+        <p className="mt-3 text-center text-sm text-gray-600">
           {isLogin ? "Don't have an account?" : "Already have an account?"}
           <button
             onClick={toggleForm}

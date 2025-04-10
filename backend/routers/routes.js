@@ -2,16 +2,18 @@ import e from "express";
 import { Register } from "../components/auth/user.js";
 
 
-const userRouter = e.Router();
 
 // User APIs setup
+// Normal user Router
+const userRouter = e.Router();
 userRouter.post("/register", Register)
 userRouter.post("/login", Register);
 
-
+//
+const googleRouter = e.Router();
 
 
 
 
 //
-export { userRouter }
+export { userRouter, googleRouter }
